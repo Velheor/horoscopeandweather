@@ -1,6 +1,7 @@
 package com.grsu;
 
 public class Horoscope {
+
     public String horoscopeType(String answer) {
         switch (answer) {
             case "1":
@@ -9,12 +10,13 @@ public class Horoscope {
                 return horoscopeForWeekend();
             case "3":
                 return horoscopeForMonth();
+            default:
+                return "error";
         }
-        return "";
     }
 
     private String horoscopeForMonth() {
-        return "Tomorrow will be a good day";
+        return "";
     }
 
     private String horoscopeForWeekend() {
@@ -22,6 +24,7 @@ public class Horoscope {
     }
 
     public String horoscopeForTomorrow() {
-        return "Tomorrow will be a good day";
+        HoroscopeText horoscopeText = HoroscopeText.valueOf("LOVE");
+        return horoscopeText.toString();
     }
 }
