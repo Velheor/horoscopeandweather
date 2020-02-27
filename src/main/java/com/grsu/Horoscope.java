@@ -10,18 +10,18 @@ public class Horoscope {
             case "3":
                 return horoscopeForMonth();
         }
-        return "Fuck You";
+        return "";
     }
 
     private String horoscopeForMonth() {
-        return "Tomorrow will be worst than yesterday";
+        return "Tomorrow will be a good day";
     }
 
     private String horoscopeForWeekend() {
-        return "Tomorrow will be worst than yesterday";
+        return "Tomorrow will be a good day";
     }
 
     public String horoscopeForTomorrow() {
-        return "Tomorrow will be worst than yesterday";
+        return "Tomorrow will be a good day";
     }
 }
