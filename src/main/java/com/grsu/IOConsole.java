@@ -7,7 +7,7 @@ public class IOConsole implements InputOutput {
         System.out.println(message);
     }
 
-    public String getAnswer(){
+    public String getAnswer() {
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
