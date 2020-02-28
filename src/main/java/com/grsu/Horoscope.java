@@ -1,5 +1,13 @@
 package com.grsu;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+
+import static java.time.DayOfWeek.MONDAY;
+import static java.time.DayOfWeek.SUNDAY;
+import static java.time.temporal.TemporalAdjusters.nextOrSame;
+import static java.time.temporal.TemporalAdjusters.previousOrSame;
+
 public class Horoscope {
 
     public String horoscopeType(String answer) {
@@ -16,15 +24,20 @@ public class Horoscope {
     }
 
     private String horoscopeForMonth() {
-        return "";
+        return "In " + LocalDate.now().getMonth().name() + " " + HoroscopeText.getRandomText().toString();
     }
 
-    private String horoscopeForWeekend() {
-        return "Tomorrow will be a good day";
+    public String horoscopeForWeekend() {
+        LocalDate today = LocalDate.now();
+        LocalDate monday = today.with(previousOrSame(MONDAY));
+        LocalDate sunday = today.with(nextOrSame(SUNDAY));
+        return "From " + monday.toString() + " to " + sunday.toString() + HoroscopeText.getRandomText().toString();
     }
 
     public String horoscopeForTomorrow() {
-         return HoroscopeText.getRandomText().toString();
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
+        return calendar.getTime() + " " + HoroscopeText.getRandomText().toString();
     }
 
 
