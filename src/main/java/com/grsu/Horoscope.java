@@ -24,7 +24,8 @@ public class Horoscope {
     }
 
     public String horoscopeForTomorrow() {
-        HoroscopeText horoscopeText = HoroscopeText.valueOf("LOVE");
-        return horoscopeText.toString();
+         return HoroscopeText.getRandomText().toString();
     }
+
+
 }

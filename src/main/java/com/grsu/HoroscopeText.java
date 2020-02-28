@@ -1,5 +1,7 @@
 package com.grsu;
 
+import java.util.Random;
+
 public enum HoroscopeText {
     MONEY("Be careful with money."),
     LOVE("Be open with your partner."),
@@ -8,12 +10,16 @@ public enum HoroscopeText {
     PLAN("Plan your weekends.");
 
     private String horoscopeText;
+    private static final HoroscopeText[] VALUES = values();
+    private static final int SIZE = VALUES.length;
+    private static final Random RANDOM = new Random();
 
     HoroscopeText(String horoscopeText) {
         this.horoscopeText = horoscopeText;
     }
 
-    public String getHoroscopeText() {
+    public static HoroscopeText getRandomText()  {
+        HoroscopeText horoscopeText = VALUES[RANDOM.nextInt(SIZE)];
         return horoscopeText;
     }
 
