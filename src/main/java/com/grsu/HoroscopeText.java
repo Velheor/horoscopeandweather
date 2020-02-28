@@ -19,8 +19,7 @@ public enum HoroscopeText {
     }
 
     public static HoroscopeText getRandomText()  {
-        HoroscopeText horoscopeText = VALUES[RANDOM.nextInt(SIZE)];
-        return horoscopeText;
+        return VALUES[RANDOM.nextInt(SIZE)];
     }
 
     @Override
