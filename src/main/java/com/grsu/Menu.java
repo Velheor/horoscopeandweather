@@ -10,28 +10,23 @@ public class Menu {
         inputOutput = new IOConsole();
         switch (inputOutput.getAnswer()) {
             case "1":
-                horoscopeMenu();
-                break;
+                inputOutput.writeMessage("Enter your birthday MM/DD/YEAR:");
+                inputOutput.writeMessage("Choose type of horoscope:");
+                inputOutput.getAnswer();
             case "2":
-                weatherMenu();
-                break;
+                inputOutput.writeMessage("Choose type of weather:");
+            default:
+                typeMenu();
         }
     }
 
-    public void horoscopeMenu() {
+    public void typeMenu() {
         Horoscope horoscope = new Horoscope();
-        inputOutput.writeMessage("Enter your birthday MM/DD/YEAR:");
-        inputOutput.getAnswer();
-        inputOutput.writeMessage("Choose type of horoscope:");
         inputOutput.writeMessage("1 - tomorrow");
         inputOutput.writeMessage("2 - week");
         inputOutput.writeMessage("3 - month");
+        inputOutput.writeMessage("4 - special day");
         inputOutput.writeMessage(horoscope.horoscopeType(inputOutput.getAnswer()));
-    }
-
-    public void weatherMenu() {
-        inputOutput.writeMessage("Enter your birthday MM/DD/YEAR:");
-        String date = inputOutput.getAnswer();
     }
 }
 

@@ -3,11 +3,11 @@ package com.grsu;
 import java.util.Random;
 
 public enum HoroscopeText {
-    MONEY("Be careful with money."),
-    LOVE("Be open with your partner."),
-    WORK("Do a lot at the job."),
-    MOOD("Do not let broke day."),
-    PLAN("Plan your weekends.");
+    MONEY("be careful with money."),
+    LOVE("be open with your partner."),
+    WORK("do a lot at the job."),
+    MOOD("do not let broke day."),
+    PLAN("plan your weekends.");
 
     private String horoscopeText;
     private static final HoroscopeText[] VALUES = values();

@@ -24,20 +24,20 @@ public class Horoscope {
     }
 
     private String horoscopeForMonth() {
-        return "In " + LocalDate.now().getMonth().name() + " " + HoroscopeText.getRandomText().toString();
+        return "At " + LocalDate.now().getMonth().name() + " " + HoroscopeText.getRandomText().toString();
     }
 
     public String horoscopeForWeekend() {
         LocalDate today = LocalDate.now();
         LocalDate monday = today.with(previousOrSame(MONDAY));
         LocalDate sunday = today.with(nextOrSame(SUNDAY));
-        return "From " + monday.toString() + " to " + sunday.toString() + HoroscopeText.getRandomText().toString();
+        return "From " + monday.toString() + " to " + sunday.toString() + " " + HoroscopeText.getRandomText().toString();
     }
 
     public String horoscopeForTomorrow() {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_YEAR, 1);
-        return calendar.getTime() + " " + HoroscopeText.getRandomText().toString();
+        return "Today " + calendar.getTime() + " " + HoroscopeText.getRandomText().toString();
     }
 
 
