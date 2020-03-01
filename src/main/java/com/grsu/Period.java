@@ -1,5 +1,7 @@
 package com.grsu;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -14,9 +16,8 @@ import static java.time.temporal.TemporalAdjusters.previousOrSame;
 public class Period {
     private String parseDate(String date) {
         try {
-            SimpleDateFormat s = new SimpleDateFormat("MM/DD/YYYY");
-            Date y = s.parse(date);
-            return y.toString();
+            SimpleDateFormat sdf = new SimpleDateFormat("MM.dd.yyyy");
+            return sdf.parse(date).toString();
         } catch (ParseException e) {
             return "Error";
         }
