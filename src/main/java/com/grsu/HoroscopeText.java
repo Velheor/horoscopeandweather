@@ -9,10 +9,10 @@ public enum HoroscopeText {
     MOOD("do not let broke day."),
     PLAN("plan your weekends.");
 
-    private String horoscopeText;
     private static final HoroscopeText[] VALUES = values();
     private static final int SIZE = VALUES.length;
     private static final Random RANDOM = new Random();
+    private String horoscopeText;
 
     HoroscopeText(String horoscopeText) {
         this.horoscopeText = horoscopeText;
