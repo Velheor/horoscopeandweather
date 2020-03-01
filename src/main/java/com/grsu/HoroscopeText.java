@@ -18,7 +18,7 @@ public enum HoroscopeText {
         this.horoscopeText = horoscopeText;
     }
 
-    public static HoroscopeText getRandomText()  {
+    public static HoroscopeText getRandomText() {
         return VALUES[RANDOM.nextInt(SIZE)];
     }
 
