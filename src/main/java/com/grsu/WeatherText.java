@@ -3,8 +3,8 @@ package com.grsu;
 import java.util.Random;
 
 public enum WeatherText {
-    GOOD("will be sunny."),
-    BAD("will be rainy."),
+    SUNNY("will be sunny."),
+    RAINY("will be rainy."),
     COLD("will be snow."),
     HOT("will be very hot."),
     WINDY("wind 30 km/h"),

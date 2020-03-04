@@ -1,0 +1,6 @@
+will be sunny
+will be rainy
+will be snow
+will be very hot
+wind 30 km/h
+damp weather

@@ -11,6 +11,24 @@ import static java.time.temporal.TemporalAdjusters.nextOrSame;
 import static java.time.temporal.TemporalAdjusters.previousOrSame;
 
 public class Period {
+    public String createPeriod(String answer) {
+        String periods = "";
+        switch (answer) {
+            case "1":
+                periods = predictForTomorrow();
+                break;
+            case "2":
+                periods = predictForWeekend();
+                break;
+            case "3":
+                periods = predictForMonth();
+                break;
+            default:
+                periods = predictForSpecialDate(answer);
+        }
+        return periods;
+    }
+
     private String parseDate(String date) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("MM.dd.yyyy");
@@ -37,6 +55,10 @@ public class Period {
 
     public String predictForTomorrow() {
         Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         return "Today " + calendar.getTime();
     }

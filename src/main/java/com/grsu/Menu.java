@@ -5,43 +5,35 @@ import java.util.Map;
 
 public class Menu {
     private InputOutput inputOutput = new IOConsole();
+    private Period period = new Period();
+    private Predict predict = new Predict();
     private Map<String, String> weatherPredicts = new HashMap<String, String>();
 
     public void mainMenu() {
+        String periodForPredict = "";
+        String predictForPeriod = "";
         inputOutput.writeMessage("Hello!");
-        inputOutput.writeMessage("1 - horoscope");
-        inputOutput.writeMessage("2 - weather forecast");
-        switch (inputOutput.getAnswer()) {
-            case "1":
-                inputOutput.writeMessage("Enter your birthday MM.DD.YEAR:");
-                inputOutput.getAnswer();
-                dateToPredictMenu();
-                inputOutput.writeMessage(periodType(inputOutput.getAnswer()) + " " + HoroscopeText.getRandomText().toString());
-                break;
-            case "2":
-                dateToPredictMenu();
-                String date = periodType(inputOutput.getAnswer());
-                inputOutput.writeMessage(date + " " + checkForUniqueDateInWeather(date, WeatherText.getRandomText().toString()));
-                break;
+        serviceType();
+        String type = inputOutput.getAnswer();
+        dateToPredictMenu();
+        String date = inputOutput.getAnswer();
+        if (date.equals("4")) {
+            inputOutput.writeMessage("Enter date MM/DD/YEAR:");
+            periodForPredict = period.predictForSpecialDate(inputOutput.getAnswer());
+        } else {
+            periodForPredict = period.createPeriod(date);
         }
+        if (type.equals("2")) {
+            predictForPeriod = checkForUniqueWeatherPredict(periodForPredict, predict.createPredict("2"));
+        } else
+            periodForPredict = predict.createPredict(type);
+        inputOutput.writeMessage(periodForPredict + predictForPeriod);
         mainMenu();
     }
 
-    public String periodType(String answer) {
-        Period period = new Period();
-        switch (answer) {
-            case "1":
-                return period.predictForTomorrow();
-            case "2":
-                return period.predictForWeekend();
-            case "3":
-                return period.predictForMonth();
-            case "4":
-                inputOutput.writeMessage("Enter date MM.DD.YEAR:");
-                return period.predictForSpecialDate(inputOutput.getAnswer());
-            default:
-                return "error";
-        }
+    public void serviceType() {
+        inputOutput.writeMessage("1 - horoscope");
+        inputOutput.writeMessage("2 - weather forecast");
     }
 
     public void dateToPredictMenu() {
@@ -52,10 +44,10 @@ public class Menu {
         inputOutput.writeMessage("4 - special day");
     }
 
-    public String checkForUniqueDateInWeather(String date, String predict) {
-        if(!weatherPredicts.containsKey(date)){
-            weatherPredicts.put(date, predict);;
+    public String checkForUniqueWeatherPredict(String period, String predict) {
+        if (!weatherPredicts.containsKey(period)) {
+            weatherPredicts.put(period, predict);
         }
-        return weatherPredicts.get(date);
+        return weatherPredicts.get(period);
     }
 }
