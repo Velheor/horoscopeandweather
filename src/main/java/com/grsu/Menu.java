@@ -1,8 +1,17 @@
 package com.grsu;
 
+import com.grsu.io.IOConsole;
+import com.grsu.io.InputOutput;
+import com.grsu.model.Forecast;
+
 public class Menu {
     private InputOutput inputOutput = new IOConsole();
     private Forecast forecast = new Forecast();
+
+    public static void main(String[] str) {
+        Menu menu = new Menu();
+        menu.mainMenu();
+    }
 
     public void mainMenu() {
         inputOutput.writeMessage("Hello!");

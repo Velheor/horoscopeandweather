@@ -1,4 +1,4 @@
-package com.grsu;
+package com.grsu.model;
 
 import java.util.HashMap;
 import java.util.Map;

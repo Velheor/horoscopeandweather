@@ -1,4 +1,4 @@
-package com.grsu;
+package com.grsu.io;
 
 import java.util.Scanner;
 

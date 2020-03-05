@@ -1,4 +1,4 @@
-package com.grsu;
+package com.grsu.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

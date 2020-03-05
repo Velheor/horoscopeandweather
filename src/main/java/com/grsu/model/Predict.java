@@ -1,17 +1,19 @@
-package com.grsu;
+package com.grsu.model;
 
 import java.util.List;
 import java.util.Random;
 
 public class Predict {
+    ReadFromFile readFromFile = new ReadFromFile();
+
     public String createPredict(String type) {
-        String predict;
+        String predict = new String();
         switch (type) {
             case "1":
-                predict = getRandomValueForPredict(ReadFromFile.fileRead("src/main/java/com/grsu/Horoscope.txt"));
+                predict = getRandomValueForPredict(readFromFile.fileRead("src/main/java/com/grsu/predictsText/Horoscope.txt"));
                 break;
             case "2":
-                predict = getRandomValueForPredict(ReadFromFile.fileRead("src/main/java/com/grsu/Weather.txt"));
+                predict = getRandomValueForPredict(readFromFile.fileRead("src/main/java/com/grsu/predictsText/Weather.txt"));
                 break;
             default:
                 predict = "error";
