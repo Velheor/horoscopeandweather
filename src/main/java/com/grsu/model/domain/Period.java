@@ -1,4 +1,7 @@
-package com.grsu.model;
+package com.grsu.model.domain;
+
+import com.grsu.io.IOConsole;
+import com.grsu.io.InputOutput;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,23 +13,26 @@ import static java.time.DayOfWeek.SUNDAY;
 import static java.time.temporal.TemporalAdjusters.nextOrSame;
 import static java.time.temporal.TemporalAdjusters.previousOrSame;
 
-public class Period {
-    public String createPeriod(String answer) {
-        String periods = "";
-        switch (answer) {
-            case "1":
-                periods = predictForTomorrow();
+public abstract class Period {
+    InputOutput inputOutput = new IOConsole();
+
+    public String createPeriod(PeriodType type) {
+        String period = new String();
+        switch (type) {
+            case TOMMOROW:
+                period = predictForTomorrow();
                 break;
-            case "2":
-                periods = predictForWeekend();
+            case WEEK:
+                period = predictForWeekend();
                 break;
-            case "3":
-                periods = predictForMonth();
+            case MONTH:
+                period = predictForMonth();
                 break;
-            default:
-                periods = predictForSpecialDate(answer);
+            case SPECIALDAY:
+                period = predictForSpecialDate(inputOutput.getAnswer());
+                break;
         }
-        return periods;
+        return period;
     }
 
     private String parseDate(String date) {
@@ -38,22 +44,22 @@ public class Period {
         }
     }
 
-    public String predictForSpecialDate(String day) {
+    private String predictForSpecialDate(String day) {
         return "At " + parseDate(day);
     }
 
-    public String predictForMonth() {
+    private String predictForMonth() {
         return "At " + LocalDate.now().getMonth().name();
     }
 
-    public String predictForWeekend() {
+    private String predictForWeekend() {
         LocalDate today = LocalDate.now();
         LocalDate monday = today.with(previousOrSame(MONDAY));
         LocalDate sunday = today.with(nextOrSame(SUNDAY));
         return "From " + monday.toString() + " to " + sunday.toString();
     }
 
-    public String predictForTomorrow() {
+    private String predictForTomorrow() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 0);
         calendar.set(Calendar.MINUTE, 0);

@@ -2,12 +2,11 @@ package com.grsu.model;
 
 import com.grsu.model.domain.*;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ForecastFactory {
-    private Set<Forecast> forecasts = new HashSet<>();
+    private List<Forecast> forecasts = new ArrayList<>();
 
     public Forecast createForecast(PredictType predictType, PeriodType periodType) {
         Forecast forecast = null;
@@ -24,7 +23,7 @@ public class ForecastFactory {
     }
 
     private Forecast checkForUniquePredict(Forecast forecast, String period) {
-        if(!forecasts.stream().filter(o -> o.getPeriod().equals(period)).findFirst().isPresent()){
+        if (!forecasts.stream().filter(o -> o.getPeriod().equals(period)).findFirst().isPresent()) {
             forecasts.add(forecast);
         }
         return forecasts.stream().filter(o -> o.getPeriod().equals(period)).findFirst().get();
