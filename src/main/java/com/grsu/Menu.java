@@ -30,14 +30,18 @@ public class Menu {
             case "2":
                 forecast = forecastFactory.createForecast(PredictType.WEATHER, periodType(date));
                 break;
+            case "3":
+                inputOutput.writeMessage(forecastFactory.paidService());
+                mainMenu();
         }
         inputOutput.writeMessage(forecast.getPeriod() + " " + forecast.getPredict());
         mainMenu();
     }
 
     public void serviceType() {
-        inputOutput.writeMessage("1 - horoscope");
-        inputOutput.writeMessage("2 - weather forecast");
+        inputOutput.writeMessage("1 - horoscope costs 1$");
+        inputOutput.writeMessage("2 - weather forecast costs 2$");
+        inputOutput.writeMessage("3 - money earned");
     }
 
     public void dateToPredictMenu() {
