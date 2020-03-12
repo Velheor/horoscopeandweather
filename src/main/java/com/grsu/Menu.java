@@ -21,14 +21,16 @@ public class Menu {
         inputOutput.writeMessage("Hello!");
         serviceType();
         String type = inputOutput.getAnswer();
-        dateToPredictMenu();
-        String date = inputOutput.getAnswer();
         switch (type) {
             case "1":
-                forecast = forecastFactory.createForecast(PredictType.HOROSCOPE, periodType(date));
+                dateToPredictMenu();
+                String date = inputOutput.getAnswer();
+                forecast = forecastFactory.createForecast(PredictType.HOROSCOPE, periodType(date), inputOutput);
                 break;
             case "2":
-                forecast = forecastFactory.createForecast(PredictType.WEATHER, periodType(date));
+                dateToPredictMenu();
+                date = inputOutput.getAnswer();
+                forecast = forecastFactory.createForecast(PredictType.WEATHER, periodType(date), inputOutput);
                 break;
             case "3":
                 inputOutput.writeMessage(forecastFactory.paidService());

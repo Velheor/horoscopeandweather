@@ -5,7 +5,7 @@ import com.grsu.model.ReadFromFile;
 import java.util.List;
 import java.util.Random;
 
-public abstract class Predict extends Period {
+public class Predict {
     private ReadFromFile readFromFile = new ReadFromFile();
 
     public String createPredict(String fileName) {

@@ -1,6 +1,5 @@
 package com.grsu.model.domain;
 
-import com.grsu.io.IOConsole;
 import com.grsu.io.InputOutput;
 
 import java.text.ParseException;
@@ -13,8 +12,12 @@ import static java.time.DayOfWeek.SUNDAY;
 import static java.time.temporal.TemporalAdjusters.nextOrSame;
 import static java.time.temporal.TemporalAdjusters.previousOrSame;
 
-public abstract class Period {
-    InputOutput inputOutput = new IOConsole();
+public class Period {
+    InputOutput inputOutput;
+
+    protected Period(InputOutput io) {
+        inputOutput = io;
+    }
 
     public String createPeriod(PeriodType type) {
         String period = new String();
