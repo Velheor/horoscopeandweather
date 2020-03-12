@@ -13,7 +13,7 @@ import static java.time.temporal.TemporalAdjusters.nextOrSame;
 import static java.time.temporal.TemporalAdjusters.previousOrSame;
 
 public class Period {
-    InputOutput inputOutput;
+    private InputOutput inputOutput;
 
     protected Period(InputOutput io) {
         inputOutput = io;
@@ -69,6 +69,6 @@ public class Period {
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
         calendar.add(Calendar.DAY_OF_YEAR, 1);
-        return "Today " + calendar.getTime();
+        return "Tomorrow " + calendar.getTime();
     }
 }
