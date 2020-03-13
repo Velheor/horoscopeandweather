@@ -11,12 +11,14 @@ public class ForecastFactory {
 
     public Forecast createForecast(PredictType predictType, PeriodType periodType, InputOutput io) {
         Forecast forecast = null;
+        Period period = new Period(io);
+        Predict predict = new Predict();
         switch (predictType) {
             case WEATHER:
-                forecast = new Weather(periodType, io);
+                forecast = new Weather(predict.createPredict("src/main/java/com/grsu/predictsText/Weather.txt"), period.createPeriod(periodType));
                 break;
             case HOROSCOPE:
-                forecast = new Horoscope(periodType, io);
+                forecast = new Horoscope(predict.createPredict("src/main/java/com/grsu/predictsText/Horoscope.txt"), period.createPeriod(periodType));
                 break;
         }
         return checkForUniquePredict(forecast, forecast.getPeriod());

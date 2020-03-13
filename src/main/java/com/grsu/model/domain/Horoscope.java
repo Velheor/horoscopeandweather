@@ -5,11 +5,11 @@ import com.grsu.io.InputOutput;
 public class Horoscope implements Forecast {
     private String predict;
     private String period;
-    private int price = 1;
+    private final int price = 1;
 
-    public Horoscope(PeriodType periodType, InputOutput io) {
-        period = new Period(io).createPeriod(periodType);
-        predict = new Predict().createPredict("src/main/java/com/grsu/predictsText/Horoscope.txt");
+    public Horoscope(String predict, String period) {
+        this.predict = predict;
+        this.period = period;
     }
 
     public String getPeriod() {

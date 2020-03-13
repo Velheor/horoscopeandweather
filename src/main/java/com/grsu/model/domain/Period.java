@@ -15,7 +15,7 @@ import static java.time.temporal.TemporalAdjusters.previousOrSame;
 public class Period {
     private InputOutput inputOutput;
 
-    protected Period(InputOutput io) {
+    public Period(InputOutput io) {
         inputOutput = io;
     }
 

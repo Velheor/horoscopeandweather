@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ReadFromFile {
+public class ReadFromFile implements ReadFile {
     public List<String> fileRead(String fileName) {
         List<String> predicts = new ArrayList<String>();
         try {
