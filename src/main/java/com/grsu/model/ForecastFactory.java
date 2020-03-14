@@ -15,10 +15,10 @@ public class ForecastFactory {
         Predict predict = new Predict();
         switch (predictType) {
             case WEATHER:
-                forecast = new Weather(predict.createPredict("src/main/java/com/grsu/predictsText/Weather.txt"), period.createPeriod(periodType));
+                forecast = new Weather(predict.createPredict("src/main/java/com/grsu/predictsText/WeatherJson.json"), period.createPeriod(periodType));
                 break;
             case HOROSCOPE:
-                forecast = new Horoscope(predict.createPredict("src/main/java/com/grsu/predictsText/Horoscope.txt"), period.createPeriod(periodType));
+                forecast = new Horoscope(predict.createPredict("src/main/java/com/grsu/predictsText/HoroscopeJson.json"), period.createPeriod(periodType));
                 break;
         }
         return checkForUniquePredict(forecast, forecast.getPeriod());

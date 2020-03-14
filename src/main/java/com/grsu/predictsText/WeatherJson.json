@@ -1,0 +1,27 @@
+[
+  {
+    "predict": {
+      "text": "will be sunny."
+    }
+  },
+  {
+    "predict": {
+      "text": "will be rainy."
+    }
+  },
+  {
+    "predict": {
+      "text": "will be snow."
+    }
+  },
+  {
+    "predict": {
+      "text": "will be very hot."
+    }
+  },
+  {
+    "predict": {
+      "text": "wind 30 km/h."
+    }
+  }
+]

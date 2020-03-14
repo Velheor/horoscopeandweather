@@ -1,0 +1,27 @@
+[
+  {
+    "predict": {
+      "text": "be careful with money."
+    }
+  },
+  {
+    "predict": {
+      "text": "be open with your partner."
+    }
+  },
+  {
+    "predict": {
+      "text": "do a lot at the job."
+    }
+  },
+  {
+    "predict": {
+      "text": "do not let broke day."
+    }
+  },
+  {
+    "predict": {
+      "text": "plan your weekends."
+    }
+  }
+]
