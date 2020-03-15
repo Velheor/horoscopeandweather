@@ -1,7 +1,5 @@
 package com.grsu.model.domain;
 
-import com.grsu.io.InputOutput;
-
 public class Horoscope implements Forecast {
     private String predict;
     private String period;
