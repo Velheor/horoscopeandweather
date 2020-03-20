@@ -23,5 +23,10 @@
     "predict": {
       "text": "wind 30 km/h."
     }
+  },
+  {
+    "predict": {
+      "text": "will be very hot."
+    }
   }
 ]
