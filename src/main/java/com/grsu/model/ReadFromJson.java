@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Set;
 
 public class ReadFromJson implements ReadFile {
-    @Override
     public List<String> fileRead(String fileName) {
         JSONParser jsonParser = new JSONParser();
         Set<String> predicts = new LinkedHashSet<>();

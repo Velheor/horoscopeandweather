@@ -1,15 +1,15 @@
 package com.grsu.model.domain;
 
-import com.grsu.model.ReadFromJson;
+import com.grsu.model.ReadFromDB;
 
 import java.util.List;
 import java.util.Random;
 
 public class Predict {
-    private ReadFromJson readFromJson = new ReadFromJson();
+    private ReadFromDB readFromDB = new ReadFromDB();
 
     public String createPredict(String fileName) {
-        return getRandomValueForPredict(readFromJson.fileRead(fileName));
+        return getRandomValueForPredict(readFromDB.fileRead(fileName));
     }
 
     private String getRandomValueForPredict(List<String> predictsText) {
